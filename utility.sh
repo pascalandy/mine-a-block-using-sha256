@@ -68,10 +68,7 @@ function version {    # version
 }
 function release {
   source env.sh .
-
-  # Find the latest tag
-  tag_version="$(git tag --sort=-creatordate | head -n1)" && \
-  echo "${tag_version}" && sleep 5
+  echo "We are about to release ${tag_version}" && sleep 5
 
   # Requires https://github.com/aktau/github-release
   ${gopath}/bin/github-release release \
