@@ -49,7 +49,7 @@ function diff {
   check && echo
   git diff
 }
-function ver {    # version
+function version {    # version
   App_is_input2_empty
   tag_version="${input_2}"
 
@@ -67,23 +67,19 @@ function ver {    # version
   release
 }
 function release {
+  source env.sh .
 
-source env.sh .
+  # Find the latest tag
+  tag_version="$(git tag --sort=-creatordate | head -n1)" && \
+  echo "${tag_version}" && sleep 5
 
-# Find the latest tag
-tag_version="$(git tag --sort=-creatordate | head -n1)" && \
-echo "${tag_version}" && sleep 5
-
-# Requires https://github.com/aktau/github-release
-${gopath}/bin/github-release release \
-  --user "${git_user}" \
-  --repo "${git_repo}" \
-  --tag "${tag_version}" \
-  --name "${tag_version}" \
-  --description "${git_release_description}"
-}
-function version {
-  ver
+  # Requires https://github.com/aktau/github-release
+  ${gopath}/bin/github-release release \
+    --user "${git_user}" \
+    --repo "${git_repo}" \
+    --tag "${tag_version}" \
+    --name "${tag_version}" \
+    --description "${git_release_description}"
 }
 function tag {
   echo "Look for 'ver' instead."
