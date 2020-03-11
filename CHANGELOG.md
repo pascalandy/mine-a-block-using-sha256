@@ -7,6 +7,13 @@ Status template:
 
 # Releases
 
+## 0.11.0 (2020-03-11)
+### ⚡️ Updates
+- [cb2feac](https://github.com/firepress-org/bashlava/commit/cb2feac) Update mining demo
+
+### 🔍 Compare
+- ... with previous release: [0.14.2 <> 0.11.0](https://github.com/firepress-org/bashlava/compare/0.14.2...0.11.0)
+
 ## 0.10.5 (2020-02-17)
 ### ⚡️ Updates
 - [230fbbf](https://github.com/firepress-org/bashlava/commit/230fbbf) UPDATE 'release" where 'edge' was sometime bypassed
